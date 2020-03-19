@@ -6,7 +6,7 @@
   <link href="/small-lan.github.io/atom.xml" rel="self"/>
   
   <link href="https://lanjiantao.github.io/"/>
-  <updated>2020-03-17T07:05:53.374Z</updated>
+  <updated>2020-03-17T15:22:42.096Z</updated>
   <id>https://lanjiantao.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>you-title</title>
+    <title>markdown</title>
+    <link href="https://lanjiantao.github.io/uncategorized/markdown/"/>
+    <id>https://lanjiantao.github.io/uncategorized/markdown/</id>
+    <published>2020-03-17T15:13:50.017Z</published>
+    <updated>2020-03-17T15:22:42.096Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;markdown语法&quot;&gt;&lt;a href=&quot;#markdown语法&quot; class=&quot;headerlink&quot; title=&quot;markdown语法&quot;&gt;&lt;/a&gt;markdown语法&lt;/h1&gt;&lt;h2 id=&quot;代码块&quot;&gt;&lt;a href=&quot;#代码块&quot; class=&quot;header
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>标签1</title>
     <link href="https://lanjiantao.github.io/uncategorized/you-title/"/>
     <id>https://lanjiantao.github.io/uncategorized/you-title/</id>
     <published>2020-03-17T07:04:56.000Z</published>
-    <updated>2020-03-17T07:05:53.374Z</updated>
+    <updated>2020-03-17T14:15:35.119Z</updated>
     
     <summary type="html">
     
@@ -29,7 +49,7 @@
     
     
     
-      <category term="tags" scheme="https://lanjiantao.github.io/tags/tags/"/>
+      <category term="标签1" scheme="https://lanjiantao.github.io/tags/%E6%A0%87%E7%AD%BE1/"/>
     
   </entry>
   
