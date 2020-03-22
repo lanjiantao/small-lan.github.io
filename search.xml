@@ -3,7 +3,7 @@
   <entry>
     <title>markdown基本语法</title>
     <url>/small-lan.github.io/uncategorized/markdown/</url>
-    <content><![CDATA[<h1 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言#"></a>一、前言<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><p>由于有些语法无法在博客园展示，推荐使用Typora解锁全套，下载地址：<a href="https://www.typora.io/**" target="_blank" rel="noopener">https://www.typora.io/**</a></p>
+    <content><![CDATA[<h1 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言#"></a>一、前言<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><p>由于有些语法无法在博客园展示，推荐使用Typora解锁全套，下载地址：<a href="https://www.typora.io/" target="_blank" rel="noopener">https://www.typora.io/</a></p>
 <p>之前项目一直使用<code>word</code>撰写文档，有比较大的弊病：</p>
 <ul>
 <li>只能对纯文本文件进行版本控制，而word是二进制格式</li>
@@ -12,29 +12,29 @@
 </ul>
 <p>而假如单纯的使用txt，就没有一点格式了，用html虽然既有格式又能加入版本控制，但是需要花费较多的时间在标签上，而且标签占了文档的较大百分比，不易阅读。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">所以，最终的解决方案就是 **Markdown** ，作为一种轻量级的标记语言，能在非常短的时间内掌握。而且不仅可以用于写文档，还可以写博客、写简书、做一些随手笔记。Markdown文件以.md结尾，可以导出为html和PDF（需要使用的工具支持）。它是一种语法（个人认为是简化版的html），但是和html不同的是，各种解析器对其会有不同的表现。比如我的IDEA Markdown插件会把分割线显示成一条细灰线，Cmd Markdown则是显示一条虚线。所以建议保持使用一种Markdown工具和尽量使用标准语法。</span><br></pre></td></tr></table></figure>
-<h1 id="二、Markdown基本语法"><a href="#二、Markdown基本语法" class="headerlink" title="二、Markdown基本语法#"></a>二、Markdown基本语法<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><h2 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题#"></a>2.1 标题<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h1 id="二、Markdown基本语法"><a href="#二、Markdown基本语法" class="headerlink" title="二、Markdown基本语法"></a>二、Markdown基本语法</h1><h2 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h2><p>代码：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 最小只有六级标题</span><br></pre></td></tr></table></figure>
-<h2 id="2-2-加粗"><a href="#2-2-加粗" class="headerlink" title="2.2 加粗#"></a>2.2 加粗<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">**我被加粗了**</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-加粗"><a href="#2-2-加粗" class="headerlink" title="2.2 加粗"></a>2.2 加粗</h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">**加粗**</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p><strong>我被加粗了</strong></p>
-<h2 id="2-3-斜体"><a href="#2-3-斜体" class="headerlink" title="2.3 斜体#"></a>2.3 斜体<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">*我倾斜了了*</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-斜体"><a href="#2-3-斜体" class="headerlink" title="2.3 斜体"></a>2.3 斜体</h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">*倾斜*</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p><em>我倾斜了了</em></p>
-<h2 id="2-4-高亮"><a href="#2-4-高亮" class="headerlink" title="2.4 高亮#"></a>2.4 高亮<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">==我高亮了==</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-高亮"><a href="#2-4-高亮" class="headerlink" title="2.4 高亮"></a>2.4 高亮</h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">==高亮==</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
-<p>==我高亮了==</p>
-<h2 id="2-5-上标"><a href="#2-5-上标" class="headerlink" title="2.5 上标#"></a>2.5 上标<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<p>==高亮==</p>
+<h2 id="2-5-上标"><a href="#2-5-上标" class="headerlink" title="2.5 上标"></a>2.5 上标</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">2</span>^<span class="number">2</span>^</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p>2^2^</p>
-<h2 id="2-6-下标"><a href="#2-6-下标" class="headerlink" title="2.6 下标#"></a>2.6 下标<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-6-下标"><a href="#2-6-下标" class="headerlink" title="2.6 下标"></a>2.6 下标</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">H~<span class="number">2</span>~o</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p>H~2~o</p>
-<h2 id="2-7-代码引用（-gt-式）"><a href="#2-7-代码引用（-gt-式）" class="headerlink" title="2.7 代码引用（&gt;式）#"></a>2.7 代码引用（&gt;式）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-7-代码引用（-gt-式）"><a href="#2-7-代码引用（-gt-式）" class="headerlink" title="2.7 代码引用（&gt;式）"></a>2.7 代码引用（&gt;式）</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;hello markdown!</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <blockquote>
@@ -49,19 +49,18 @@
 <p>hello markdown!</p>
 </blockquote>
 </blockquote>
-<h2 id="2-8-代码引用（-式）"><a href="#2-8-代码引用（-式）" class="headerlink" title="2.8 代码引用（```式）#"></a>2.8 代码引用（```式）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-8-代码引用（-式）"><a href="#2-8-代码引用（-式）" class="headerlink" title="2.8 代码引用（```式）"></a>2.8 代码引用（```式）</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">```java</span><br><span class="line">print(<span class="string">'hello nick'</span>)</span><br><span class="line">\`\`\`</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'hello nick'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="2-9-插入链接（链接显示）"><a href="#2-9-插入链接（链接显示）" class="headerlink" title="2.9 插入链接（链接显示）#"></a>2.9 插入链接（链接显示）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;https:<span class="comment">//lanjiantao.github.io/small-lan.github.io/&gt;</span></span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p> <a href="https://lanjiantao.github.io/small-lan.github.io/">https://lanjiantao.github.io/small-lan.github.io/</a> </p>
-<h2 id="2-10-插入链接（链接描述显示）"><a href="#2-10-插入链接（链接描述显示）" class="headerlink" title="2.10 插入链接（链接描述显示）#"></a>2.10 插入链接（链接描述显示）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-10-插入链接（链接描述显示）"><a href="#2-10-插入链接（链接描述显示）" class="headerlink" title="2.10 插入链接（链接描述显示）"></a>2.10 插入链接（链接描述显示）</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[小兰的博客](https:<span class="comment">//lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/ "小兰的博客")</span></span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <p><a href="https://lanjiantao.github.io/small-lan.github.io/">小兰的博客</a></p>
-<p><a href="https://www.cnblogs.com/nickchen121/p/\Users\nick\mac\desktop\数据类型总结-搞笑结束.jpg?x-oss-process=style/watermark" target="_blank" rel="noopener">https://www.cnblogs.com/nickchen121/p/\Users\nick\mac\desktop\数据类型总结-搞笑结束.jpg?x-oss-process=style/watermark</a>)</p>
-<h2 id="2-11-有序列表"><a href="#2-11-有序列表" class="headerlink" title="2.11 有序列表#"></a>2.11 有序列表<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-11-有序列表"><a href="#2-11-有序列表" class="headerlink" title="2.11 有序列表"></a>2.11 有序列表</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. one</span><br><span class="line"><span class="number">2</span>. two </span><br><span class="line"><span class="number">3</span>. three</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <ol>
@@ -69,7 +68,7 @@
 <li>two </li>
 <li>three</li>
 </ol>
-<h2 id="2-12-无序列表"><a href="#2-12-无序列表" class="headerlink" title="2.12 无序列表#"></a>2.12 无序列表<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-12-无序列表"><a href="#2-12-无序列表" class="headerlink" title="2.12 无序列表"></a>2.12 无序列表</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">* one</span><br><span class="line">* two</span><br><span class="line">* three</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <ul>
@@ -77,39 +76,40 @@
 <li>two</li>
 <li>three</li>
 </ul>
-<h2 id="2-13-分割线"><a href="#2-13-分割线" class="headerlink" title="2.13 分割线#"></a>2.13 分割线<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<h2 id="2-13-分割线"><a href="#2-13-分割线" class="headerlink" title="2.13 分割线"></a>2.13 分割线</h2><p>代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <hr>
-<h2 id="2-14-表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）"><a href="#2-14-表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）" class="headerlink" title="2.14 表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）#"></a>2.14 表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">name | age | sex </span><br><span class="line">:-:|:-|-:</span><br><span class="line">tony|<span class="number">20</span>|男</span><br><span class="line">小红|<span class="number">18</span>|女</span><br></pre></td></tr></table></figure>
+<h2 id="2-14-表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）"><a href="#2-14-表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）" class="headerlink" title="2.14 表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）"></a>2.14 表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">姓名 | 年龄 | 性别 | 爱好</span><br><span class="line">:-:|:-:|-:|:-</span><br><span class="line">小明|<span class="number">15</span>|男|打球</span><br><span class="line">小红|<span class="number">16</span>|女|看书</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">name</th>
-<th style="text-align:left">age</th>
-<th style="text-align:right">sex</th>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">年龄</th>
+<th style="text-align:right">性别</th>
+<th style="text-align:left">爱好</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">tony</td>
-<td style="text-align:left">20</td>
+<td style="text-align:center">小明</td>
+<td style="text-align:center">15</td>
 <td style="text-align:right">男</td>
+<td style="text-align:left">打球</td>
 </tr>
 <tr>
 <td style="text-align:center">小红</td>
-<td style="text-align:left">18</td>
+<td style="text-align:center">16</td>
 <td style="text-align:right">女</td>
+<td style="text-align:left">看书</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结#"></a>三、总结<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><p>以上所述就是Markdown的基本标签，虽然不多，但是可以解决大部分情况。</p>
-<blockquote>
+<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h1><p>以上所述就是Markdown的基本标签，虽然不多，但是可以解决大部分情况。</p>
 <p>可以用20%的标签完成80%的效果</p>
-</blockquote>
 <p>基础markdown语法参考：<a href="https://www.appinn.com/markdown/" target="_blank" rel="noopener">https://www.appinn.com/markdown/</a></p>
 <p>插入数学公式markdown语法参考：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a></p>
 ]]></content>
