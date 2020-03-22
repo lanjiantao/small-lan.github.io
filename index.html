@@ -522,7 +522,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/small-lan.github.io/uncategorized/markdown/" itemprop="url">markdown</a></h1>
+                <a class="post-title-link" href="/small-lan.github.io/uncategorized/markdown/" itemprop="url">markdown基本语法</a></h1>
         
 
         <div class="post-meta">
@@ -550,8 +550,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-03-17T23:22:42+08:00">
-                2020-03-17
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-22T16:01:59+08:00">
+                2020-03-22
               </time>
             
           </span>
@@ -588,7 +588,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  112
+                  806
                 </span>
               
 
@@ -604,7 +604,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -627,9 +627,115 @@
       
         
           
-            <h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码块语法</span></span><br><span class="line">​```java</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">​```shell</span><br></pre></td></tr></table></figure>
-<p>1.java代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package test;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">    private static List&lt;Beater&gt; beaters &#x3D; new ArrayList();</span><br><span class="line"></span><br><span class="line">    public static void startBeat(String someone) &#123;</span><br><span class="line">        for (Beater beater : beaters) &#123;</span><br><span class="line">            beater.beat(someone);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        for (int i&#x3D;0; i &lt; 10000; i++) &#123;</span><br><span class="line">            beaters.add(new Beater());</span><br><span class="line">        &#125;</span><br><span class="line">        startBeat(&quot;SongSong&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Beater &#123;</span><br><span class="line">        void beat(String someone) &#123;</span><br><span class="line">            System.out.println(&quot;Give &quot; + someone + &quot; a hard beat on its head!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言#"></a>一、前言<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><p>由于有些语法无法在博客园展示，推荐使用Typora解锁全套，下载地址：<a href="https://www.typora.io/**" target="_blank" rel="noopener">https://www.typora.io/**</a></p>
+<p>之前项目一直使用<code>word</code>撰写文档，有比较大的弊病：</p>
+<ul>
+<li>只能对纯文本文件进行版本控制，而word是二进制格式</li>
+<li>格式繁杂，经常需要中断写作来控制格式</li>
+<li>代码与文档分离，给写文档造成更大的阻力</li>
+</ul>
+<p>而假如单纯的使用txt，就没有一点格式了，用html虽然既有格式又能加入版本控制，但是需要花费较多的时间在标签上，而且标签占了文档的较大百分比，不易阅读。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所以，最终的解决方案就是 **Markdown** ，作为一种轻量级的标记语言，能在非常短的时间内掌握。而且不仅可以用于写文档，还可以写博客、写简书、做一些随手笔记。Markdown文件以.md结尾，可以导出为html和PDF（需要使用的工具支持）。它是一种语法（个人认为是简化版的html），但是和html不同的是，各种解析器对其会有不同的表现。比如我的IDEA Markdown插件会把分割线显示成一条细灰线，Cmd Markdown则是显示一条虚线。所以建议保持使用一种Markdown工具和尽量使用标准语法。</span><br></pre></td></tr></table></figure>
+<h1 id="二、Markdown基本语法"><a href="#二、Markdown基本语法" class="headerlink" title="二、Markdown基本语法#"></a>二、Markdown基本语法<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><h2 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题#"></a>2.1 标题<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 最小只有六级标题</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-加粗"><a href="#2-2-加粗" class="headerlink" title="2.2 加粗#"></a>2.2 加粗<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**我被加粗了**</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><strong>我被加粗了</strong></p>
+<h2 id="2-3-斜体"><a href="#2-3-斜体" class="headerlink" title="2.3 斜体#"></a>2.3 斜体<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*我倾斜了了*</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><em>我倾斜了了</em></p>
+<h2 id="2-4-高亮"><a href="#2-4-高亮" class="headerlink" title="2.4 高亮#"></a>2.4 高亮<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==我高亮了==</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p>==我高亮了==</p>
+<h2 id="2-5-上标"><a href="#2-5-上标" class="headerlink" title="2.5 上标#"></a>2.5 上标<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>^<span class="number">2</span>^</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p>2^2^</p>
+<h2 id="2-6-下标"><a href="#2-6-下标" class="headerlink" title="2.6 下标#"></a>2.6 下标<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H~<span class="number">2</span>~o</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p>H~2~o</p>
+<h2 id="2-7-代码引用（-gt-式）"><a href="#2-7-代码引用（-gt-式）" class="headerlink" title="2.7 代码引用（&gt;式）#"></a>2.7 代码引用（&gt;式）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;hello markdown!</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<blockquote>
+<p>hello markdown!</p>
+</blockquote>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; hello markdown!</span><br><span class="line">&gt;&gt; hello markdown!</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<blockquote>
+<p>hello markdown!</p>
+<blockquote>
+<p>hello markdown!</p>
+</blockquote>
+</blockquote>
+<h2 id="2-8-代码引用（-式）"><a href="#2-8-代码引用（-式）" class="headerlink" title="2.8 代码引用（```式）#"></a>2.8 代码引用（```式）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```java</span><br><span class="line">print(<span class="string">'hello nick'</span>)</span><br><span class="line">\`\`\`</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'hello nick'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="2-9-插入链接（链接显示）"><a href="#2-9-插入链接（链接显示）" class="headerlink" title="2.9 插入链接（链接显示）#"></a>2.9 插入链接（链接显示）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;https:<span class="comment">//lanjiantao.github.io/small-lan.github.io/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p> <a href="https://lanjiantao.github.io/small-lan.github.io/">https://lanjiantao.github.io/small-lan.github.io/</a> </p>
+<h2 id="2-10-插入链接（链接描述显示）"><a href="#2-10-插入链接（链接描述显示）" class="headerlink" title="2.10 插入链接（链接描述显示）#"></a>2.10 插入链接（链接描述显示）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[小兰的博客](https:<span class="comment">//lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/ "小兰的博客")</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><a href="https://lanjiantao.github.io/small-lan.github.io/">小兰的博客</a></p>
+<p><a href="https://www.cnblogs.com/nickchen121/p/\Users\nick\mac\desktop\数据类型总结-搞笑结束.jpg?x-oss-process=style/watermark" target="_blank" rel="noopener">https://www.cnblogs.com/nickchen121/p/\Users\nick\mac\desktop\数据类型总结-搞笑结束.jpg?x-oss-process=style/watermark</a>)</p>
+<h2 id="2-11-有序列表"><a href="#2-11-有序列表" class="headerlink" title="2.11 有序列表#"></a>2.11 有序列表<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. one</span><br><span class="line"><span class="number">2</span>. two </span><br><span class="line"><span class="number">3</span>. three</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>one</li>
+<li>two </li>
+<li>three</li>
+</ol>
+<h2 id="2-12-无序列表"><a href="#2-12-无序列表" class="headerlink" title="2.12 无序列表#"></a>2.12 无序列表<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* one</span><br><span class="line">* two</span><br><span class="line">* three</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>
+<h2 id="2-13-分割线"><a href="#2-13-分割线" class="headerlink" title="2.13 分割线#"></a>2.13 分割线<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<hr>
+<h2 id="2-14-表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）"><a href="#2-14-表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）" class="headerlink" title="2.14 表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）#"></a>2.14 表格而且第二行必须得有，并且第二行的冒号代表对齐格式，分别为居中；右对齐；左对齐）<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | age | sex </span><br><span class="line">:-:|:-|-:</span><br><span class="line">tony|<span class="number">20</span>|男</span><br><span class="line">小红|<span class="number">18</span>|女</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:left">age</th>
+<th style="text-align:right">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tony</td>
+<td style="text-align:left">20</td>
+<td style="text-align:right">男</td>
+</tr>
+<tr>
+<td style="text-align:center">小红</td>
+<td style="text-align:left">18</td>
+<td style="text-align:right">女</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结#"></a>三、总结<a href="https://lanjiantao.github.io/small-lan.github.io/uncategorized/markdown/" title="小兰的博客">#</a></h1><p>以上所述就是Markdown的基本标签，虽然不多，但是可以解决大部分情况。</p>
+<blockquote>
+<p>可以用20%的标签完成80%的效果</p>
+</blockquote>
+<p>基础markdown语法参考：<a href="https://www.appinn.com/markdown/" target="_blank" rel="noopener">https://www.appinn.com/markdown/</a></p>
+<p>插入数学公式markdown语法参考：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a></p>
 
           
         
@@ -1090,7 +1196,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/small-lan.github.io/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1181,6 +1287,10 @@
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
     <span class="post-meta-divider">|</span>
+
+
+
+
 
 
 
@@ -1790,15 +1900,23 @@
     })
   </script>
 
-  
-  
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Yafine/cdn@2.5/source/js/click_show_text.js"></script>
+ 
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+  <script type="text/javascript" src="/js/src/fireworks.js"></script>
+ 
+ <script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script>
 
 
 
  
 <script src="/small-lan.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/small-lan.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
 </html>
+

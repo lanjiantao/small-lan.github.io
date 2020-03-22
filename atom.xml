@@ -6,7 +6,7 @@
   <link href="/small-lan.github.io/atom.xml" rel="self"/>
   
   <link href="https://lanjiantao.github.io/"/>
-  <updated>2020-03-17T15:22:42.096Z</updated>
+  <updated>2020-03-22T08:01:59.300Z</updated>
   <id>https://lanjiantao.github.io/</id>
   
   <author>
@@ -17,22 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>markdown</title>
+    <title>markdown基本语法</title>
     <link href="https://lanjiantao.github.io/uncategorized/markdown/"/>
     <id>https://lanjiantao.github.io/uncategorized/markdown/</id>
     <published>2020-03-17T15:13:50.017Z</published>
-    <updated>2020-03-17T15:22:42.096Z</updated>
+    <updated>2020-03-22T08:01:59.300Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;markdown语法&quot;&gt;&lt;a href=&quot;#markdown语法&quot; class=&quot;headerlink&quot; title=&quot;markdown语法&quot;&gt;&lt;/a&gt;markdown语法&lt;/h1&gt;&lt;h2 id=&quot;代码块&quot;&gt;&lt;a href=&quot;#代码块&quot; class=&quot;header
+        &lt;h1 id=&quot;markdown&quot;&gt;&lt;a href=&quot;#markdown&quot; class=&quot;headerlink&quot; title=&quot;markdown&quot;&gt;&lt;/a&gt;markdown&lt;/h1&gt;&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; 
       
     
     </summary>
     
     
+    
+      <category term="markdown" scheme="https://lanjiantao.github.io/tags/markdown/"/>
     
   </entry>
   
