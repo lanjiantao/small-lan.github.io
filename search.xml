@@ -1,6 +1,436 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据结构与算法</title>
+    <url>/small-lan.github.io/uncategorized/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><h2 id="1-线性结构和非线性结构"><a href="#1-线性结构和非线性结构" class="headerlink" title="1.线性结构和非线性结构"></a>1.线性结构和非线性结构</h2><p>数据结构包括:线性结构和非线性结构。</p>
+<h3 id="1-1线性结构"><a href="#1-1线性结构" class="headerlink" title="1.1线性结构"></a>1.1线性结构</h3><p>1) 线性结构作为最常用的数据结构，其特点是数据元素之间存在一对- -的线性关系<br>2)线性 结构有两种不同的存储结构，即顺序存储结构(数组)和链式存储结构(链表)。顺序存储的线性表称为顺序<br>表，顺序表中的存储元素是连续的<br>3)链式存储的线性表称为链表，链表中的存储元素不一定是连续的，元素节点中存放数据元素以及相邻元素的地<br>址信息<br>4)线性结构常见的有: 数组、队列、链表和栈，后面我们会详细讲解.</p>
+<h3 id="1-2非线性结构"><a href="#1-2非线性结构" class="headerlink" title="1.2非线性结构"></a>1.2非线性结构</h3><p>非线性结构包括:二维数组， 多维数组，广义表，树结构，图结构</p>
+<h2 id="2稀疏数组和队列"><a href="#2稀疏数组和队列" class="headerlink" title="2稀疏数组和队列"></a>2稀疏数组和队列</h2><h3 id="2-1稀疏-sparsearray-数组"><a href="#2-1稀疏-sparsearray-数组" class="headerlink" title="2.1稀疏==sparsearray==数组"></a>2.1稀疏==sparsearray==数组</h3><h4 id="2-1-1先看-个实际的需求"><a href="#2-1-1先看-个实际的需求" class="headerlink" title="2.1.1先看- -个实际的需求"></a>2.1.1先看- -个实际的需求</h4><p>编写的五子棋程序中，有存盘退出和续上盘的功能。</p>
+<p><img src="/small-lan.github.io/uncategorized/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/1586054751179.png" alt="1586054751179"></p>
+<p>➢分析问题:<br>因为该二维数组的很多值是默认值0,因此记录了很多没有意义的数据-&gt;稀疏数组。</p>
+<h4 id="2-1-2基本介绍"><a href="#2-1-2基本介绍" class="headerlink" title="2.1.2基本介绍"></a>2.1.2基本介绍</h4><p>当一个数组中大部分元素为0，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p>
+<p>稀疏数组的处理方法是:<br>1)记录数组一共有几行几列,有多少个不同的值<br>2)把具有不同值的元素的行列及值记录在-一个小规模的数组中， 从而缩小程序的规模<br>➢稀疏数组举例说明 </p>
+<p><img src="/small-lan.github.io/uncategorized/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/1586054899162.png" alt="1586054899162"></p>
+<h4 id="2-1-3应用实例"><a href="#2-1-3应用实例" class="headerlink" title="2.1.3应用实例"></a>2.1.3应用实例</h4><p>1) 使用稀疏数组，来保留类似前面的二维数组(棋盘、地图等等)<br>2)把稀疏数组存盘，并且可以从新恢复原来的二维数组数<br>3)整体思路分析</p>
+<p><img src="/small-lan.github.io/uncategorized/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/1586055007853.png" alt="1586055007853"></p>
+<h4 id="2-1-4代码实现"><a href="#2-1-4代码实现" class="headerlink" title="2.1.4代码实现"></a>2.1.4代码实现</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xiaolan.sparsearry;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 稀疏数组的代码实现</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lanjiantao</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2020-04-05-10:54</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SparseArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个原始的二维数组 11*11</span></span><br><span class="line">        <span class="comment">//0：没有棋子  1：黑子  2：蓝子</span></span><br><span class="line">        <span class="keyword">int</span> chessArr1[][] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line">        chessArr1[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        chessArr1[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">2</span>;</span><br><span class="line">        chessArr1[<span class="number">4</span>][<span class="number">5</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="comment">//输出原始的二位数组</span></span><br><span class="line">        System.out.println(<span class="string">"原始的二维数组"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row : chessArr1) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> data : row) &#123;</span><br><span class="line">                System.out.printf(<span class="string">"%d\t"</span>, data);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将二维数组转为稀疏数组的思想</span></span><br><span class="line">        <span class="comment">//1.先遍历二维数组得到非0数据的个数</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chessArr1.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; chessArr1.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (chessArr1[i][j] != <span class="number">0</span>) &#123;</span><br><span class="line">                    sum++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//System.out.println("sum="+sum);</span></span><br><span class="line">        <span class="comment">//2.创建对应的稀疏数组</span></span><br><span class="line">        <span class="keyword">int</span> sparseArr[][] = <span class="keyword">new</span> <span class="keyword">int</span>[sum + <span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">        <span class="comment">//给稀疏数组赋值</span></span><br><span class="line">        sparseArr[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">11</span>;</span><br><span class="line">        sparseArr[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">11</span>;</span><br><span class="line">        sparseArr[<span class="number">0</span>][<span class="number">2</span>] = sum;</span><br><span class="line">        <span class="comment">//遍历二位数组将非0的值存放到sparseArr中</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//count用于记录是第几个非0数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chessArr1.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; chessArr1.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (chessArr1[i][j] != <span class="number">0</span>) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    sparseArr[count][<span class="number">0</span>] = i;</span><br><span class="line">                    sparseArr[count][<span class="number">1</span>] = j;</span><br><span class="line">                    sparseArr[count][<span class="number">2</span>] = chessArr1[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//输出稀疏数组的形式</span></span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"得到的稀疏数组为---------"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sparseArr.length; i++) &#123;</span><br><span class="line">            System.out.printf(<span class="string">"%d\t%d\t%d\t\n"</span>, sparseArr[i][<span class="number">0</span>], sparseArr[i][<span class="number">1</span>], sparseArr[i][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="comment">//将稀疏数组恢复成原始的二维数组</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         *1.先读取稀疏数组的第一行，根据第一.行的数据，创建原始的二维数组，比如上面的chessArr2 =int [11][11]</span></span><br><span class="line"><span class="comment">         *2.在读取稀疏数组后几行的数据，并赋给原始的二维数组即可.</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">        <span class="comment">//1.先读取稀疏数组的第一行，根据第一.行的数据，创建原始的二维数组</span></span><br><span class="line">        <span class="keyword">int</span> chessArr2[][] = <span class="keyword">new</span> <span class="keyword">int</span>[sparseArr[<span class="number">0</span>][<span class="number">0</span>]][sparseArr[<span class="number">0</span>][<span class="number">1</span>]];</span><br><span class="line">        <span class="comment">//2.在读取稀疏数组后几行的数据(从第二行开始)，并赋给原始的二维数组即可</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; sparseArr.length; i++) &#123;</span><br><span class="line">            chessArr2[sparseArr[i][<span class="number">0</span>]][sparseArr[i][<span class="number">1</span>]] = sparseArr[i][<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//输出恢复后的二维数组</span></span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"恢复后的二维数组"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row : chessArr2) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> data : row) &#123;</span><br><span class="line">                System.out.printf(<span class="string">"%d\t"</span>, data);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>数据结构与算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql学习</title>
+    <url>/small-lan.github.io/uncategorized/MYSQL/</url>
+    <content><![CDATA[<h2 id="1、连接数据库-（狂神视频学习）"><a href="#1、连接数据库-（狂神视频学习）" class="headerlink" title="1、连接数据库==（狂神视频学习）=="></a>1、连接数据库==（狂神视频学习）==</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql -uroot -p123456 <span class="comment">--连接数据库</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'123456'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span> <span class="keyword">and</span> Host = <span class="string">'localhost'</span>; <span class="comment">--修改用户密码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">----------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 所有语句结尾都使用;结尾</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"></span><br><span class="line">mysql&gt; use school --切换数据库 use 数据库名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>; <span class="comment">--查看数据库中的所有表</span></span><br><span class="line"><span class="keyword">describe</span> student; <span class="comment">--显示数据库中所有表的信息</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> westos; <span class="comment">--创建一个数据库</span></span><br><span class="line">exit; <span class="comment">--退出</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--  单行注释（sql本来的注释）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*（sql多行注释）</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>数据库     XX   语言</strong>   CRUD增删改查！</p>
+<p>DDL    定义</p>
+<p>DML   操作</p>
+<p>DQL   查询</p>
+<p>DCL    控制</p>
+<h2 id="2、操作数据库"><a href="#2、操作数据库" class="headerlink" title="2、操作数据库"></a>2、操作数据库</h2><p>操作数据库&gt;操作数据库中的表&gt;操作数据库表中的数据</p>
+<p>==mysql关键字不区分大小写==</p>
+<h3 id="2-1操作数据库（了解）"><a href="#2-1操作数据库（了解）" class="headerlink" title="2.1操作数据库（了解）"></a>2.1操作数据库（了解）</h3><p>1.创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> [<span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span>]  westos;</span><br></pre></td></tr></table></figure>
+<p>2.删除数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> [<span class="keyword">if</span> <span class="keyword">exists</span>]  westos;</span><br></pre></td></tr></table></figure>
+<p>3.使用数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 如果表明或字段名是一个特殊字符，就需要代  ``</span></span><br><span class="line"><span class="keyword">use</span> <span class="string">`school`</span></span><br></pre></td></tr></table></figure>
+<p>4.查看数据库库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span> ; <span class="comment">--查看所有的数据库</span></span><br></pre></td></tr></table></figure>
+<p><strong>学习思路</strong></p>
+<ul>
+<li>固定的语法关键字必须要强行记住</li>
+</ul>
+<h3 id="2-2数据库的列类型"><a href="#2-2数据库的列类型" class="headerlink" title="2.2数据库的列类型"></a>2.2数据库的列类型</h3><blockquote>
+<p>数值</p>
+</blockquote>
+<ul>
+<li>tinyint     十分小的数据               1个字节</li>
+<li>smallint      较小的数据               2个字节</li>
+<li>mediumint    中等大小的数据    3个字节</li>
+<li><strong>int    标准的整数                          4个字节</strong>          常用</li>
+<li>bigint      比较大的数据                8个字节</li>
+<li>float     浮点数                               4个字节</li>
+<li>double   浮点数                            8个字节</li>
+<li>decimal     字符串形式的浮点数      金融计算的时候，一般用decimal</li>
+</ul>
+<blockquote>
+<p>字符串   </p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CHAR</td>
+<td style="text-align:left">0-255字节</td>
+<td style="text-align:left">定长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">VARCHAR</td>
+<td style="text-align:left">0-65535 字节</td>
+<td style="text-align:left">变长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYBLOB</td>
+<td style="text-align:left">0-255字节</td>
+<td style="text-align:left">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYTEXT</td>
+<td style="text-align:left">0-255字节</td>
+<td style="text-align:left">短文本字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">BLOB</td>
+<td style="text-align:left">0-65 535字节</td>
+<td style="text-align:left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">TEXT</td>
+<td style="text-align:left">0-65 535字节</td>
+<td style="text-align:left">长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMBLOB</td>
+<td style="text-align:left">0-16 777 215字节</td>
+<td style="text-align:left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMTEXT</td>
+<td style="text-align:left">0-16 777 215字节</td>
+<td style="text-align:left">中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGBLOB</td>
+<td style="text-align:left">0-4 294 967 295字节</td>
+<td style="text-align:left">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGTEXT</td>
+<td style="text-align:left">0-4 294 967 295字节</td>
+<td style="text-align:left">极大文本数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>时间日期</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小 (字节)</th>
+<th style="text-align:center">范围</th>
+<th style="text-align:left">格式</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">3</td>
+<td style="text-align:center">1000-01-01/9999-12-31</td>
+<td style="text-align:left">YYYY-MM-DD</td>
+<td style="text-align:left">日期值</td>
+</tr>
+<tr>
+<td style="text-align:left">TIME</td>
+<td style="text-align:left">3</td>
+<td style="text-align:center">‘-838:59:59’/‘838:59:59’</td>
+<td style="text-align:left">HH:MM:SS</td>
+<td style="text-align:left">时间值或持续时间</td>
+</tr>
+<tr>
+<td style="text-align:left">YEAR</td>
+<td style="text-align:left">1</td>
+<td style="text-align:center">1901/2155</td>
+<td style="text-align:left">YYYY</td>
+<td style="text-align:left">年份值</td>
+</tr>
+<tr>
+<td style="text-align:left">DATETIME</td>
+<td style="text-align:left">8</td>
+<td style="text-align:center">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td style="text-align:left">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:left">混合日期和时间值</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP</td>
+<td style="text-align:left">4</td>
+<td style="text-align:center">1970-01-01 00:00:00/2038结束时间是第 <strong>2147483647</strong> 秒，北京时间 <strong>2038-1-19 11:14:07</strong>，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td style="text-align:left">YYYYMMDD HHMMSS</td>
+<td style="text-align:left">混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>mull</p>
+</blockquote>
+<ul>
+<li>没有值，未知</li>
+<li>==注意，不要使用null进行运算，结果为null==</li>
+</ul>
+<h3 id="2-3数据库的字段属性（重点）"><a href="#2-3数据库的字段属性（重点）" class="headerlink" title="2.3数据库的字段属性（重点）"></a>2.3数据库的字段属性（重点）</h3><p>==Unsigned==</p>
+<ul>
+<li>无符号的整数</li>
+<li>声明了该列不能声明为负数</li>
+</ul>
+<p>==zerofill==</p>
+<ul>
+<li>0填充的</li>
+<li>不足的位数使用0来填充，   int（3）   5   —-005</li>
+</ul>
+<p>==auto_increment==    <strong>自增</strong></p>
+<ul>
+<li>定义列为自增的属性，数值会自动加1 。</li>
+<li>一般用于主键，必须为整数类型</li>
+<li>可以自定义设计主键自增的起始值和步长</li>
+</ul>
+<p>==NOT NULL           NULL==      <strong>非空</strong></p>
+<ul>
+<li>假设设置为not null，如果不给它赋值，就会报错！</li>
+<li>null   如果不填写值，默认就是null</li>
+</ul>
+<p>==default==     默认</p>
+<ul>
+<li>设置默认的值</li>
+<li>sex， 默认的值为 男，如果不指定该列的值，则会有默认的值!</li>
+</ul>
+<h3 id="2-4创建数据库表-重点"><a href="#2-4创建数据库表-重点" class="headerlink" title="2.4创建数据库表(重点)"></a>2.4创建数据库表(重点)</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--目标:创建一个schoo1数据库</span></span><br><span class="line"><span class="comment">--创建学生表(列,字段) 使用SQL创建</span></span><br><span class="line"><span class="comment">-- 学号int登录密码varchar(20)姓名，性别varchar(2) ,出生日期(datatime)，家庭住址，emai1</span></span><br><span class="line"><span class="comment">--注意点，使用英文()，表的名称和字段尽量使用括起来</span></span><br><span class="line"><span class="comment">-- AUTO_ INCREMENT自增</span></span><br><span class="line"><span class="comment">--字符串使用单引号括起来!</span></span><br><span class="line"><span class="comment">--所有的语句后面加，(英文的) ，最后一个不用加</span></span><br><span class="line"><span class="comment">--PRIMARYKEY主键，一.般一个表只有一个唯--的主键!</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> student(</span><br><span class="line">			<span class="string">`id`</span> <span class="built_in">INT</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_ <span class="keyword">INCREMENT</span> <span class="keyword">COMMENT</span> <span class="string">'学号'</span>,</span><br><span class="line">			<span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'匿名'</span> <span class="keyword">COMMENT</span> <span class="string">'姓名'</span> ,</span><br><span class="line">			<span class="string">`pwd`</span> <span class="built_in">VARCHAR</span> (<span class="number">20</span>)<span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'123456'</span><span class="keyword">COMMENT</span> <span class="string">' 密码'</span>,</span><br><span class="line">			<span class="string">`sex`</span> <span class="built_in">VARCHAR</span>(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'女'</span> <span class="keyword">COMMENT</span> <span class="string">'性别'</span>,</span><br><span class="line"> 			<span class="string">`birthday`</span> DATETIME <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'出生日期'</span>,</span><br><span class="line">			<span class="string">`address`</span> <span class="built_in">VARCHAR</span> (<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span><span class="string">' 家庭住址'</span> ,</span><br><span class="line">			<span class="string">`emai1`</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">' 邮箱'</span>,</span><br><span class="line">			PRIMARY <span class="keyword">KEY</span>( idi )</span><br><span class="line">)<span class="keyword">ENGINE</span>=<span class="keyword">INNODB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure>
+<p>格式</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span>[<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>]<span class="string">`表名`</span>(</span><br><span class="line">	<span class="string">'字段名'</span> 列类型 [属性] [索引] [注释]，</span><br><span class="line">	<span class="string">'字段名'</span> 列类型 [属性] [索引] [注释]，</span><br><span class="line">  ......</span><br><span class="line">	<span class="string">'字段名'</span> 列类型 [属性] [索引] [注释]</span><br><span class="line">)[表类型][字符集设置] [注释]</span><br></pre></td></tr></table></figure>
+<p>常用命令</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> school <span class="comment">-- 查看创建数据库的语句</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student <span class="comment">--查看student数据 表的定义语句</span></span><br><span class="line"><span class="keyword">DESC</span> student <span class="comment">--显示表的结构</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-5数据表的类型"><a href="#2-5数据表的类型" class="headerlink" title="2.5数据表的类型"></a>2.5数据表的类型</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 关于数据库引擎</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">INNODB默认使用~</span></span><br><span class="line"><span class="comment">MYISAM早些年使用的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MYISAM</th>
+<th>INNODB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>事务支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>数据行锁定</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>外键约束</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>表空间的大小</td>
+<td>较小</td>
+<td>较大，约为2倍</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>常规使用操作:</p>
+<p>●MYISAM    节约空间，速度较快</p>
+<p>●INNODB    安全性高， 事务的处理，多表多用户操作</p>
+<blockquote>
+<p><strong>在物理空间存在的位置</strong></p>
+</blockquote>
+<p>所有的数据库文件都存在data目录下，-一个文件夹就对应一个数据库<br>本质还是文件的存储!</p>
+<p>MySQL引擎在物理文件上的区别</p>
+<p>●InnoDB在数据库表中只有一个<em>.frm文件， 以及上级目录下的ibdata1文件<br>●MYISAM对应文件
+</em>.frm     表结构的定义文件<br><em>.MYD    数据文件(data)
+</em>.MYI    索弓|文件(index)</p>
+<blockquote>
+<p><strong>设置数据库表的字符集编码</strong></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">CHARSET=utf8</span><br></pre></td></tr></table></figure>
+<p>不设置的话，会是mysq|默认的字符集编码~ (不支持中文! )</p>
+<p>MySQL的默认编码是Latin1,不支持中文</p>
+<p>在my.ini中配置默认的编码</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">character-<span class="keyword">set</span>-<span class="keyword">server</span>=utf8</span><br></pre></td></tr></table></figure>
+<h3 id="2-6修改删除表"><a href="#2-6修改删除表" class="headerlink" title="2.6修改删除表"></a>2.6修改删除表</h3><blockquote>
+<p><strong>修改</strong></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--修改表名: ALTER TABLE旧表名RENAME AS新表名</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher <span class="keyword">RENAME</span> <span class="keyword">AS</span> teacher1</span><br><span class="line"><span class="comment">--增加表的字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span>表名<span class="keyword">ADD</span>字段名列属性</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher1 <span class="keyword">ADD</span> age <span class="built_in">INT</span>(<span class="number">11</span>)</span><br><span class="line"><span class="comment">--修改表的字段 (重命名，修改约束!)</span></span><br><span class="line"><span class="comment">-- ALTER TABLE 表名MODIFY字段名列属性[]</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher1 <span class="keyword">MODIFY</span> age <span class="built_in">VARCHAR</span>(<span class="number">11</span>) <span class="comment">-- 修改约束</span></span><br><span class="line"><span class="comment">-- ALTER TABLE表名CHANGE 旧名字 新名字列属性[]</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher1 <span class="keyword">CHANGE</span> age age1 <span class="built_in">INT</span>(<span class="number">1</span>) <span class="comment">-- 字段重名名</span></span><br><span class="line"><span class="comment">--删除表的字段:</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span>表名<span class="keyword">DROP</span> 字段名</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher1 <span class="keyword">DROP</span> age1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>删除</strong></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 删除表(如果表存在再删除)</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> teache r1</span><br></pre></td></tr></table></figure>
+<p>==所有的创建和删除操作尽量加上判断，以免报错~==<br>注意点:<br>● ``字段名，使用这个包裹!</p>
+<p>● 注释- /**/</p>
+<p>● sql 关键字大小写不敏感,建议大家写小写</p>
+<p>● 所有的符号全部用英文!</p>
+<h2 id="3、MySQL数据管理"><a href="#3、MySQL数据管理" class="headerlink" title="3、MySQL数据管理"></a>3、MySQL数据管理</h2><h3 id="3-1、外键-了解即可"><a href="#3-1、外键-了解即可" class="headerlink" title="3.1、外键(了解即可)"></a>3.1、外键(了解即可)</h3><blockquote>
+<p><strong>方式一、在创建表的时候，增加约束(麻烦， 比较复杂)</strong></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span><span class="string">`student`</span>(</span><br><span class="line">		<span class="string">`id`</span> <span class="built_in">INT</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_ <span class="keyword">INCREMENT</span> <span class="keyword">COMMENT</span> <span class="string">'学号'</span>，</span><br><span class="line">		<span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'匿名'</span> <span class="keyword">COMMENT</span> <span class="string">'姓名'</span>，</span><br><span class="line">		<span class="string">`pwd`</span> <span class="built_in">VARCHAR</span> (<span class="number">20</span>)<span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">' 123456 '</span> <span class="keyword">COMMENT</span> <span class="string">' 密码'</span>,</span><br><span class="line">		<span class="string">`sex`</span> <span class="built_in">VARCHAR</span>(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">' 女 '</span> <span class="keyword">COMMENT</span> <span class="string">' 性别'</span>,</span><br><span class="line">		<span class="string">`birthday`</span> DATETIME <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'出生日期'</span>,</span><br><span class="line">		<span class="string">`gradeid`</span> <span class="built_in">INT</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">' 学生的年级'</span>,</span><br><span class="line">		<span class="string">`address`</span> <span class="built_in">VARCHAR</span> (<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">' 家庭住址'</span>,</span><br><span class="line">		<span class="string">`emai1i`</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">' 邮箱'</span>,</span><br><span class="line">		 PRIMARY <span class="keyword">KEY</span>( <span class="string">`id`</span>)，</span><br><span class="line">	 	 <span class="keyword">KEY</span><span class="string">`FK_ gradeid`</span> ( <span class="string">`gradeid`</span> ),</span><br><span class="line">		<span class="keyword">CONSTRAINT</span> <span class="string">`FK_ gradeid`</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> ( <span class="string">`gradeid`</span> ) <span class="keyword">REFERENCES</span> <span class="string">`grade`</span> (<span class="string">`gradeid`</span>)</span><br><span class="line">)<span class="keyword">ENGINE</span>=<span class="keyword">INNODB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure>
+<h2 id="9、规范数据库设计"><a href="#9、规范数据库设计" class="headerlink" title="9、规范数据库设计"></a>9、规范数据库设计</h2><h3 id="9-1、为什么需要设计"><a href="#9-1、为什么需要设计" class="headerlink" title="9.1、为什么需要设计"></a>9.1、为什么需要设计</h3><p>==当数据库比较复杂的时候，我们就需要设计了==</p>
+<p><strong>糟糕的数据库设计:</strong><br>●数据冗余，浪费空间<br>●数据库插入和删除都会麻烦、异常 [屏蔽使用物理外键]<br>●程序的性能差</p>
+<p><strong>良好的数据库设计:</strong><br>●节省内存空间<br>●保证数据库的完整性<br>●方便我们开发系统</p>
+<p><strong>软件开发中，关于数据库的设计</strong><br>●分析需求:分析业务和需要处理的数据库的需求<br>●概要设计:设计关系图E-R图<br><strong>设计数据库的步骤:   (个人博客)</strong><br>●收集信息，分析需求<br>    。用户表(用户登录注销,用户的个人信息，写博客，创建分类)</p>
+<p>​    。分类表(文章分类,谁创建的)</p>
+<p>​    。文章表(文章的信息)</p>
+<p>​    。友链表(友链信息)</p>
+<p>​    。自定义表(系统信息，某个关键的字,或者- 些主字段) key : vatue</p>
+<p>​    。说说表(发表心情..id…conte…create_ _time)<br><strong>●标识实体(把需求落地到每个字段)</strong><br><strong>●标识实体之间的关系</strong><br>。写博客: user —&gt; blog</p>
+<p>。创建分类: user -&gt; category</p>
+<p>。关注: user -&gt;user</p>
+<p>。友链: links</p>
+<h3 id="9-2、三大范式"><a href="#9-2、三大范式" class="headerlink" title="9.2、三大范式"></a>9.2、三大范式</h3><p><strong>为什么需要数据规范化?</strong><br>●信息重复<br>●更新异常<br>●插入异常<br>。无法正常显示信息<br>●删除异常<br>。丢失有效的信息</p>
+<blockquote>
+<p><strong>三大范式(了解)</strong></p>
+</blockquote>
+<p><strong>第一范式(1NF)</strong><br>原子性:保证每一列不可再分<br><strong>第二范式(2NF)</strong><br>前提:满足第一范式<br>每张表只描述一件事情<br><strong>第三范式(3NF)</strong><br>前提:满足第一范式和第二范式<br>第三范式需要确保数据表中的每一列数据都和主键直接相关， 而不能间接相关。</p>
+<p>(规范数据库的设计)<br><strong>规范性和性能的问题</strong><br>关联查询的表不得超过3 =张表<br>●考虑商业化的需求和目标，(成本, 用户体验! )数据库的性能更加重要<br>●在规范性能的问题的时候，需要适当的考虑一下 规范性!<br>●故意给某些表增加一些冗余的字段。 (从多表查询中变为单表查询)<br>●故意增加一些计算列(从大数据量降低为小数据量的查询:索引)</p>
+<h2 id="10、JDBC"><a href="#10、JDBC" class="headerlink" title="10、JDBC"></a>10、JDBC</h2><h3 id="10-1、数据库驱动"><a href="#10-1、数据库驱动" class="headerlink" title="10.1、数据库驱动"></a>10.1、数据库驱动</h3><p>驱动:声卡，显卡、数据库</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585984602407.png" alt="1585984602407"></p>
+<p>我们的程序会通过数据库驱动，和数据库打交道!</p>
+<h3 id="10-2、JDBC"><a href="#10-2、JDBC" class="headerlink" title="10.2、JDBC"></a>10.2、JDBC</h3><p>SUN公司为了简化开发人员的(对数据库的统一-) 操作，提供了一个(Java操作数据库的)规范，俗称JDBC<br>这些规范的实现由具体的厂商去做~<br>对于开发人员来说，我们只需要掌握JDBC接口的操作即可!</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585984830461.png" alt="1585984830461"></p>
+<p>java.sq|<br>javax.sql<br>还需要导入一个数据库驱动包mysql-connector-java-5.1.47.jar</p>
+<h3 id="10-3、-第一个JDBC程序"><a href="#10-3、-第一个JDBC程序" class="headerlink" title="10.3、 第一个JDBC程序"></a>10.3、 第一个JDBC程序</h3><p>步骤总结:<br>1、加载驱动<br>2、连接数据库DriverManager<br>3、获得执行sq|的对象Statement<br>4、获得返回的结果集<br>5、释放连接</p>
+<blockquote>
+<p><strong>DriverManager</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// DriverManager . regi sterDriver (new com. mysq1. j dbc. Driver());</span></span><br><span class="line">Class. forName(<span class="string">"com. mysq1. jdbc.Driver"</span>); <span class="comment">//固定写法， 加载驱动</span></span><br><span class="line">Connection connection = DriverManager . <span class="function">getConnecti <span class="title">on</span> <span class="params">(ur1，username，password)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// connection代表数据库</span></span><br><span class="line"><span class="comment">//数据库设置自动提交</span></span><br><span class="line"><span class="comment">//事务提交</span></span><br><span class="line"><span class="comment">//事务滚回</span></span><br><span class="line">connection. ro11backO);</span><br><span class="line">connection. commitO);</span><br><span class="line">connecti on . setAutoCommit();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>URL</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">string ur1 = <span class="string">"jdbc :mysq1://1ocalhost: 3306/jdbcstudy?</span></span><br><span class="line"><span class="string">useUni code=true&amp;characte rEncoding=utf8&amp;usessL=true"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// mysq1 -- 3306</span></span><br><span class="line"><span class="comment">//协议://主机地址:端口号/数据库名?参数1&amp;参数2&amp;参数3</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">// oralce -- 1521</span></span><br><span class="line"><span class="comment">//jdbc :oracle:thin:@1ocalhost :1521:sid</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Statement执行SQL的对象PrepareStatement 执行SQL的对象</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String sq1 = <span class="string">"SELECT * FROM users"</span>; <span class="comment">//编写SQL</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">statement . executeQuery(); <span class="comment">//查询操作返回ResultSet</span></span><br><span class="line">statement . execute(); <span class="comment">//执行任何SQL</span></span><br><span class="line">statement. executeupdate(); <span class="comment">//更新、插入、删除。都是用这个，返回一个受影响的行数</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>ResultSet查询的结果集:封装了所有的查询结果</strong></p>
+</blockquote>
+<p><em>获得指定的数据类型</em></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">resultSet . getobject(); <span class="comment">//在不知道列类型的情况下使用</span></span><br><span class="line"><span class="comment">//如果知道列的类型就使用指定的类型</span></span><br><span class="line">resu7tSet. getString();</span><br><span class="line">resultSet. getInt();</span><br><span class="line">resu7tSet. getFloat();</span><br><span class="line">resu1tSet. getDate();</span><br><span class="line">resultSet. getobject();</span><br></pre></td></tr></table></figure>
+<p>遍历，指针</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">resultSet. beforeFirst(); <span class="comment">// 移动到最前面</span></span><br><span class="line">resultSet. afterlast(); <span class="comment">// 移动到最后面</span></span><br><span class="line">resultSet. next(); <span class="comment">//移动到下一个数据</span></span><br><span class="line">resultSet. previous(); <span class="comment">//移动到前一行</span></span><br><span class="line">resultset. absolute(row): <span class="comment">//移动到指定行</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>释放资源</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//6、释放连接</span></span><br><span class="line">resultSet.close() ;</span><br><span class="line">statement.close0 ;</span><br><span class="line">connection.close(); <span class="comment">//耗资源，用完关掉!</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-4、statement对象"><a href="#10-4、statement对象" class="headerlink" title="10.4、statement对象"></a>10.4、statement对象</h3><p>==Jdbc中的statement对象用于向数据库发送SQL语句，想完成对数据库的增删改查,只需要通过这个对象向数据库发送增删改==<br>查语句即可。<br>Statement对象的executeUpdate方法，用于向数据库发送增、删、改的sql语句, executeUpdate执行完后， 将会返回一个整<br>数. (即增删改语句导致了数据库几行数据发生了变化)。<br>Statement.executeQuery方法用于向数据库发送查询语句，executeQuery方法返回代表查询结果的ResultSet对象。</p>
+<blockquote>
+<p><strong>CRUD操作-create</strong></p>
+</blockquote>
+<p>使用executeUpdate(String sq|)方法完成数据添加操作,示例操作:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Statement st = conn. createStatement() ;</span><br><span class="line">String sq1 = <span class="string">"insert into user(...) values....) "</span>;</span><br><span class="line"><span class="keyword">int</span> num = st. executeUpdate(sq1);</span><br><span class="line"><span class="keyword">if</span> (num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">System. out.print1n(<span class="string">"插入成功! ! ! "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>CRUD操作-delete</strong></p>
+</blockquote>
+<p>使用executeUpdate(String sq|)方法完成数据删除操作，示例操作:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Statement st = conn. createstatement() ;</span><br><span class="line">String sq1 = <span class="string">"delete from user where id=1"</span>;</span><br><span class="line"><span class="keyword">int</span> num = st. executeUpdate(sq1);</span><br><span class="line"><span class="keyword">if</span> (num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">System. out. print1n(“删除成功! ! ! <span class="string">");</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>CRUD操作-update</strong></p>
+</blockquote>
+<p>使用executeUpdate(String sq|)方法完成数据修改操作，示例操作:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Statement st = conn. createStatement() ;</span><br><span class="line">String sq1 = <span class="string">"update user set name= '' where name= '' "</span> ;</span><br><span class="line"><span class="keyword">int</span> num = st. executeUpdate(sq1);</span><br><span class="line"><span class="keyword">if</span> (num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">System. out. print1n(“修改成功! ! ! <span class="string">");</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>CRUD操作-read</strong></p>
+</blockquote>
+<p>使用executeQuery(String sq|)方法完成数据查询操作,示例操作:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Statement st = conn. createStatement() ;</span><br><span class="line">String sq1 = <span class="string">"select * from user where id=1"</span>;</span><br><span class="line">ResultSet rs = st. executeQuery(sq1)p</span><br><span class="line"><span class="keyword">while</span>(rs. next())&#123;</span><br><span class="line"><span class="comment">//根据获取列的数据类型，分别调用rs的相应方法映射到java对象中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>代码实现</strong></p>
+</blockquote>
+<p>1、提取工具类</p>
+<p>2、编写增删改的方法<code>executeUpdate</code></p>
+<p>3、查询<code>executeQuery</code></p>
+<blockquote>
+<p><strong>SQL注入的问题</strong></p>
+</blockquote>
+<p>sq|存在漏洞，会被攻击导致数据泄露，==SQL会被拼接or==</p>
+<h3 id="10-5、PreparedStatement对象"><a href="#10-5、PreparedStatement对象" class="headerlink" title="10.5、PreparedStatement对象"></a>10.5、PreparedStatement对象</h3><p>PreparedStatement可以防止SQL注入。效率更好! .</p>
+<p>PreparedStatement防止:SQL注入的本质，把传递进来的参数当做宁符<br>假设其中存在转义字符，比如说’会被直接转义</p>
+<p>1、新增<br>2、删除<br>3、更新<br>4、查询</p>
+<h3 id="10-6、使用ID-EA连接数据库"><a href="#10-6、使用ID-EA连接数据库" class="headerlink" title="10.6、使用ID EA连接数据库"></a>10.6、使用ID EA连接数据库</h3><p>==要先导入一个数据库驱动包mysql-connector-java-5.1.47.jar才能连接数据库==</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585994709871.png" alt="1585994709871"></p>
+<p>连接成功后，可以选择数据库</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585994814722.png" alt="1585994814722"></p>
+<p>双击数据库</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585994980782.png" alt="1585994980782"></p>
+<p>更新数据</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585995055443.png" alt="1585995055443"></p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585995138542.png" alt="1585995138542"></p>
+<p>连接失败、查看原因</p>
+<p><img src="/small-lan.github.io/uncategorized/MYSQL/1585995281452.png" alt="1585995281452"></p>
+<h3 id="10-7、事务"><a href="#10-7、事务" class="headerlink" title="10.7、事务"></a>10.7、事务</h3><p>==要么都成功，要么都失败==</p>
+<blockquote>
+<p><strong>ACID原则</strong></p>
+</blockquote>
+<p>原子性:要么全部完成，要么都不完成</p>
+<p>一致性: 总数不变</p>
+<p><strong>隔离性:多个进程互不干扰</strong></p>
+<p>持久性: - -旦提交不可逆,持久化到数据库了</p>
+<p>隔离性的问题:</p>
+<p>脏读: 一个事务读取了另一个没有提交的事务</p>
+<p>不可重复读:在同一个事务内，重复读取表中的数据，表数据发生了改变</p>
+<p>虚读(幻读) :在一个事务内，读取到了别人插入的数据，导致前后读出来结果不一致</p>
+<blockquote>
+<p><strong>代码实现</strong></p>
+</blockquote>
+<p>1、开启事务<code>conn. setAutoCommit(false);</code></p>
+<p>2、-组业务执行完毕,提交事务</p>
+<p>3、可以在catch 语句中显示的定义回滚语句，但默认失败就会回滚</p>
+<h3 id="10-9、数据库连接池"><a href="#10-9、数据库连接池" class="headerlink" title="10.9、数据库连接池"></a>10.9、数据库连接池</h3><p>数据库连接—执行完毕—-释放</p>
+<p>连接-释放十分浪费系统资源</p>
+<p><strong>池化技术:准备-些预先的资源，过来就连接预先准备好的</strong></p>
+<p>最小连接数: 10</p>
+<p>最大连接数: 15</p>
+<p>等待超时: 100ms</p>
+<p>==编写连接池，实现- -个接口DataSource==</p>
+<blockquote>
+<p><strong>开源数据源实现(拿来即用)</strong></p>
+</blockquote>
+<p>DBCP</p>
+<p>C3PO</p>
+<p>Druid:阿里巴巴</p>
+<p>使用了这些数据库连接池之后,我们在项目开发中就不需要编写连接数据库的代码了!</p>
+<blockquote>
+<p><strong>DBCP</strong></p>
+</blockquote>
+<p>需要用到的jar包</p>
+<p>commons-dbcp-1.4、commons-pool-1.6</p>
+<blockquote>
+<p><strong>C3PO</strong></p>
+</blockquote>
+<p>需要用到的jar包<br>c3p0-0.9.5.5、mchange-commons-java-0.2.19</p>
+<blockquote>
+<p><strong>结论</strong></p>
+</blockquote>
+<p>无论使用什么数据源，本质还是一样的，DataSource接口不会变,方法就不会变</p>
+]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown基本语法</title>
     <url>/small-lan.github.io/uncategorized/markdown/</url>
     <content><![CDATA[<h1 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>由于有些语法无法在博客园展示，推荐使用Typora解锁全套，下载地址：<a href="https://www.typora.io/" target="_blank" rel="noopener">https://www.typora.io/</a></p>
