@@ -6,15 +6,59 @@
   <link href="/small-lan.github.io/atom.xml" rel="self"/>
   
   <link href="https://lanjiantao.github.io/"/>
-  <updated>2020-04-05T05:17:29.747Z</updated>
+  <updated>2020-07-15T15:04:19.504Z</updated>
   <id>https://lanjiantao.github.io/</id>
   
   <author>
-    <name>兰建桃</name>
+    <name>蓝湛</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里云短信业务</title>
+    <link href="https://lanjiantao.github.io/uncategorized/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1%E4%B8%9A%E5%8A%A1/"/>
+    <id>https://lanjiantao.github.io/uncategorized/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1%E4%B8%9A%E5%8A%A1/</id>
+    <published>2020-07-15T14:56:01.565Z</published>
+    <updated>2020-07-15T15:04:19.504Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;阿里云网站管理&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/small-lan.github.io/uncategorized/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1%E4%B8%9A%E5%8A%A1/1594804046413
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis课堂笔记</title>
+    <link href="https://lanjiantao.github.io/uncategorized/Mybatis%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"/>
+    <id>https://lanjiantao.github.io/uncategorized/Mybatis%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-04-07T14:50:37.079Z</published>
+    <updated>2020-04-07T14:57:46.161Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Mybatis-9-28&quot;&gt;&lt;a href=&quot;#Mybatis-9-28&quot; class=&quot;headerlink&quot; title=&quot;Mybatis-9.28&quot;&gt;&lt;/a&gt;Mybatis-9.28&lt;/h2&gt;&lt;p&gt;环境：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JDK1.8&lt;/li&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数据结构与算法</title>
